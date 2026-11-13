@@ -3,6 +3,9 @@ from typing import Literal
 
 from pydantic import BaseModel, Field, field_validator
 
+Role = Literal["donor", "recipient"]
+ResourceKind = Literal["food_bank", "shelter", "volunteer", "donation"]
+
 
 def utcnow() -> datetime:
     return datetime.now(timezone.utc)
@@ -41,6 +44,7 @@ class ListingIn(BaseModel):
 
 class Listing(ListingIn):
     id: int
+    donor_id: int | None = None
     status: Literal["open", "matched", "expired"] = "open"
     pantry_id: int | None = None
     score: float | None = None
@@ -53,3 +57,46 @@ class Notification(BaseModel):
     pantry_id: int
     message: str
     sent_at: datetime = Field(default_factory=utcnow)
+
+
+class UserIn(BaseModel):
+    name: str = Field(min_length=1, max_length=80)
+    email: str = Field(pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    password: str = Field(min_length=8, max_length=128)
+    role: Role
+    site_id: int | None = None
+
+
+class LoginIn(BaseModel):
+    email: str
+    password: str
+
+
+class User(BaseModel):
+    id: int
+    name: str
+    email: str
+    role: Role
+    site_id: int | None = None
+    password_hash: str
+
+
+class UserOut(BaseModel):
+    id: int
+    name: str
+    email: str
+    role: Role
+    site_id: int | None = None
+
+
+class Resource(BaseModel):
+    id: int
+    name: str
+    kind: ResourceKind
+    address: str
+    lat: float
+    lon: float
+    description: str
+    how_to_help: str = ""
+    contact: str = ""
+    url: str = ""
