@@ -18,6 +18,7 @@ class Site(BaseModel):
     lat: float
     lon: float
     avg_lbs: float
+    address: str = ""
 
 
 class Pantry(BaseModel):
@@ -27,6 +28,7 @@ class Pantry(BaseModel):
     lon: float
     capacity_lbs: float
     needs: list[str] = []
+    address: str = ""
 
 
 class ListingIn(BaseModel):
@@ -100,3 +102,4 @@ class Resource(BaseModel):
     how_to_help: str = ""
     contact: str = ""
     url: str = ""
+    nav_address: str = ""

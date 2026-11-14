@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE6F5"/><stop offset="1" stop-color="#FFF1D6"/></linearGradient>
+</defs>
+<rect width="600" height="440" rx="36" fill="url(#sky)"/>
+<circle cx="470" cy="104" r="76" fill="#F6B93B" opacity=".22"/>
+<circle cx="470" cy="104" r="52" fill="#F6B93B"/>
+<g fill="#fff" opacity=".92">
+<ellipse cx="120" cy="92" rx="50" ry="16"/><ellipse cx="150" cy="78" rx="32" ry="18"/>
+<ellipse cx="330" cy="150" rx="42" ry="13"/><ellipse cx="352" cy="138" rx="26" ry="14"/>
+</g>
+<g fill="none" stroke="#2B3A33" stroke-width="2.4" stroke-linecap="round" opacity=".55">
+<path d="M255 70 q8 -9 16 0 q8 -9 16 0"/><path d="M290 104 q6 -7 12 0 q6 -7 12 0"/>
+</g>
+<path d="M0 262 C90 204 180 214 260 248 C340 282 430 204 600 232 L600 440 L0 440Z" fill="#CFE8C0"/>
+<path d="M0 304 C120 254 220 292 320 288 C420 284 500 254 600 284 L600 440 L0 440Z" fill="#8FCB9B"/>
+<g>
+<rect x="64" y="262" width="48" height="38" fill="#FFF3DC"/><polygon points="58,264 88,236 118,264" fill="#E4572E"/><rect x="81" y="278" width="14" height="22" rx="2" fill="#8A5A3B"/><rect x="96" y="271" width="10" height="10" rx="2" fill="#BFE6F5"/>
+<rect x="146" y="274" width="42" height="32" fill="#FFFFFF"/><polygon points="140,276 167,252 194,276" fill="#5AB0D8"/><rect x="160" y="288" width="12" height="18" rx="2" fill="#8A5A3B"/>
+<rect x="378" y="262" width="52" height="40" fill="#FDE9E9"/><polygon points="372,264 404,234 436,264" fill="#8E5EA2"/><rect x="396" y="280" width="14" height="22" rx="2" fill="#8A5A3B"/><rect x="414" y="272" width="10" height="10" rx="2" fill="#BFE6F5"/>
+<rect x="468" y="276" width="44" height="32" fill="#FFF3DC"/><polygon points="462,278 490,254 518,278" fill="#F28C38"/><rect x="483" y="290" width="12" height="18" rx="2" fill="#8A5A3B"/>
+</g>
+<g>
+<rect x="215" y="270" width="8" height="30" fill="#8A5A3B"/><circle cx="219" cy="262" r="22" fill="#2F7D5B"/><circle cx="208" cy="272" r="14" fill="#3E9A6F"/>
+<rect x="318" y="276" width="8" height="26" fill="#8A5A3B"/><circle cx="322" cy="268" r="19" fill="#2F7D5B"/><circle cx="332" cy="276" r="12" fill="#3E9A6F"/>
+<rect x="540" y="276" width="8" height="30" fill="#8A5A3B"/><circle cx="544" cy="268" r="20" fill="#2F7D5B"/>
+</g>
+<path d="M0 352 C100 322 200 346 300 342 C420 336 500 322 600 346 L600 440 L0 440Z" fill="#4CAF7A"/>
+<path d="M0 398 C140 372 260 402 400 388 C480 380 540 382 600 394 L600 440 L0 440Z" fill="#2F7D5B"/>
+<g>
+<path d="M232 352 L368 352 L354 418 L246 418Z" fill="#C98544"/>
+<g stroke="#9C6128" stroke-width="3" fill="none" stroke-linecap="round">
+<path d="M238 372 L362 372"/><path d="M242 392 L358 392"/><path d="M262 352 L266 418"/><path d="M290 352 L292 418"/><path d="M318 352 L316 418"/><path d="M346 352 L340 418"/>
+</g>
+<path d="M246 346 C246 280 354 280 354 346" fill="none" stroke="#B0722F" stroke-width="9" stroke-linecap="round"/>
+<circle cx="268" cy="336" r="21" fill="#E4572E"/><path d="M268 316 q4 -10 12 -10 q-2 9 -12 10z" fill="#3E9A6F"/>
+<circle cx="306" cy="328" r="22" fill="#F28C38"/><circle cx="299" cy="321" r="5" fill="#fff" opacity=".35"/>
+<ellipse cx="340" cy="338" rx="25" ry="15" fill="#E8B05C"/><g stroke="#C98544" stroke-width="3" stroke-linecap="round"><path d="M327 331 l6 14"/><path d="M340 329 l6 15"/><path d="M353 331 l5 13"/></g>
+<g><path d="M284 320 l10 -32 l10 32z" fill="#F28C38" transform="rotate(-14 294 320)"/><path d="M283 292 q-6 -14 4 -18 q4 8 -4 18z M290 290 q2 -16 12 -16 q-2 10 -12 16z" fill="#3E9A6F" transform="rotate(-14 294 320)"/></g>
+<rect x="224" y="342" width="152" height="14" rx="7" fill="#B0722F"/>
+</g>
+<g fill="#E4572E"><path d="M96 380 c-6 -7 -16 0 -9 8 l9 8 l9 -8 c7 -8 -3 -15 -9 -8z"/></g>
+<g fill="#F6B93B"><path d="M500 372 c-5 -6 -13 0 -8 6 l8 7 l8 -7 c5 -6 -3 -12 -8 -6z"/></g>
+<g fill="#fff" opacity=".9"><circle cx="150" cy="372" r="3"/><circle cx="170" cy="392" r="2.5"/><circle cx="440" cy="394" r="3"/><circle cx="540" cy="404" r="2.5"/></g>
+</svg>

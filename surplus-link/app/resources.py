@@ -1,5 +1,7 @@
 """Local food banks, shelters, and ways to help. Names, addresses, and hours come from the linked pages;
 coordinates are approximate. Hours change, so verify before the demo."""
+import re
+
 from .models import Resource
 
 _HOPE = "2012 Berkeley Way, Berkeley, CA"
@@ -78,3 +80,7 @@ RESOURCES = [
         how_to_help="Read the food drive FAQ for guidelines before you start.", url="https://www.accfb.org/food-drive-faq/",
     ),
 ]
+
+for _r in RESOURCES:
+    if re.match(r"^\d", _r.address):
+        _r.nav_address = _r.address

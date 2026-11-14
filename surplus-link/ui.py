@@ -4,11 +4,11 @@ import pandas as pd
 import requests
 import streamlit as st
 
+import theme
+
 API = os.getenv("API_URL", "http://127.0.0.1:8000")
 LOCAL_TZ = "America/Los_Angeles"
 TAGS = ["vegetarian", "vegan", "halal", "gluten-free", "produce", "baked goods", "prepared meals"]
-KIND_LABEL = {"food_bank": "Food bank", "shelter": "Shelter", "volunteer": "Volunteer", "donation": "Donate"}
-KIND_COLOR = {"food_bank": "#2e86ab", "shelter": "#8e5ea2", "volunteer": "#3cb371", "donation": "#e4572e"}
 
 
 def user() -> dict | None:
@@ -58,10 +58,11 @@ def fetch(path: str, **params):
 def require_login(role: str | None = None) -> dict:
     u = user()
     if not u:
-        st.info("Please log in to see this page.")
+        theme.empty_state("Please log in", "Log in or create a free account to see this page.", "icon_heart")
+        st.page_link("views/login.py", label="Log in or sign up", icon=":material/login:")
         st.stop()
     if role and u["role"] != role:
-        st.warning(f"This page is for {role}s.")
+        theme.empty_state("This page is for " + role + "s", "Switch accounts to see this dashboard.", "icon_heart")
         st.stop()
     return u
 
@@ -70,30 +71,19 @@ def local_time(series: pd.Series) -> pd.Series:
     return pd.to_datetime(series, utc=True).dt.tz_convert(LOCAL_TZ).dt.strftime("%a %I:%M %p")
 
 
-def directions_url(lat: float, lon: float) -> str:
-    return f"https://www.google.com/maps/search/?api=1&query={lat},{lon}"
+def point(id, name, kind, lat, lon, address="", nav_query="", description="", extra="", contact="", url="") -> dict:
+    label, strong, soft = theme.kind_style(kind)
+    return {
+        "id": id, "name": name, "kind": kind, "kind_label": label, "color": strong, "soft": soft,
+        "lat": lat, "lon": lon, "address": address, "nav_query": nav_query,
+        "description": description, "extra": extra, "contact": contact, "url": url,
+    }
 
 
-def show_map(points: list[dict]) -> None:
-    """points: dicts with lat, lon, color (hex)."""
-    if points:
-        st.map(pd.DataFrame(points).assign(size=60), color="color", size="size")
-
-
-def resource_map(items: list[dict]) -> None:
-    show_map([{"lat": r["lat"], "lon": r["lon"], "color": KIND_COLOR[r["kind"]]} for r in items])
-    st.caption("  ".join(f":gray[●] {KIND_LABEL[k]}" for k in sorted({r["kind"] for r in items})))
-
-
-def resource_cards(items: list[dict]) -> None:
-    for r in items:
-        with st.container(border=True):
-            st.markdown(f"**{r['name']}** · {KIND_LABEL[r['kind']]}")
-            st.write(r["description"])
-            if r["how_to_help"]:
-                st.markdown(f"**How to help:** {r['how_to_help']}")
-            st.caption(" · ".join(x for x in (r["address"], r["contact"]) if x))
-            c1, c2, _ = st.columns([1, 1, 4])
-            c1.link_button("Directions", directions_url(r["lat"], r["lon"]))
-            if r["url"]:
-                c2.link_button("More info", r["url"])
+def resource_points(items: list[dict]) -> list[dict]:
+    """Only places with a real street address go on the map."""
+    return [
+        point(f"r{r['id']}", r["name"], r["kind"], r["lat"], r["lon"], r["address"], r["nav_address"],
+              r["description"], r["how_to_help"], r["contact"], r["url"])
+        for r in items if r["nav_address"]
+    ]

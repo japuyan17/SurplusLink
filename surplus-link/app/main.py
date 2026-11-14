@@ -101,9 +101,11 @@ def pickups(user: User = Depends(current_user)):
             "site": site.name,
             "site_lat": site.lat,
             "site_lon": site.lon,
+            "site_address": site.address,
             "pantry": pantry.name if pantry else None,
             "pantry_lat": pantry.lat if pantry else None,
             "pantry_lon": pantry.lon if pantry else None,
+            "pantry_address": pantry.address if pantry else "",
         })
     return sorted(rows, key=lambda r: r["pickup_deadline"])
 
