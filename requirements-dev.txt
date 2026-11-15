@@ -1,7 +1,4 @@
 -r requirements.txt
 uvicorn
-streamlit
 pytest
-pandas
-requests
-httpx
+streamlit
