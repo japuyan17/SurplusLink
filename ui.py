@@ -6,7 +6,7 @@ import streamlit as st
 
 import theme
 
-API = os.getenv("API_URL", "http://127.0.0.1:8000")
+API = os.getenv("API_URL", "https://surplus-link-theta.vercel.app").rstrip("/")
 LOCAL_TZ = "America/Los_Angeles"
 TAGS = ["vegetarian", "vegan", "halal", "gluten-free", "produce", "baked goods", "prepared meals"]
 

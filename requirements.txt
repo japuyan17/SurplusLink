@@ -2,3 +2,6 @@ fastapi
 numpy
 scipy
 scikit-learn
+streamlit>=1.36.0
+pandas
+requests
