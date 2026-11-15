@@ -2,7 +2,7 @@
 
 Hunger isn't a food shortage problem, it's a logistics problem. SurplusLink matches surplus food from dining halls, restaurants, and events with nearby pantries in real time.
 
-Built for the GM#11 hackathon, targeting **UN SDG 2: Zero Hunger**.
+Built for the Open Project's GM #11 hackathon, targeting **UN SDG 2: Zero Hunger**.
 
 ## Features
 - **Accounts**: sign up as a donor or a neighbor looking for food; passwords are hashed and sessions use signed, expiring tokens

@@ -1,11 +1,4 @@
 fastapi
-uvicorn
-pydantic
 numpy
-pandas
 scipy
 scikit-learn
-streamlit
-requests
-httpx
-pytest
