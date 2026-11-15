@@ -179,3 +179,28 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+
+# SurplusLink / deployment cleanup
+
+# Python caches
+**/__pycache__/
+*.pyc
+
+# Testing
+.pytest_cache/
+tests/
+
+# Local development
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# Large local datasets (only if not needed in production)
+data/raw/
+data/processed/
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
